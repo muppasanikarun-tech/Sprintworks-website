@@ -477,7 +477,7 @@ p{max-width:72ch}
 .wizard-kicker,.wizard-step-label,.wizard-hint{font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .wizard-kicker{color:#2358dc}
 .wizard-heading .form-intro{font-size:14px;line-height:1.7;color:#626b77}
-.wizard-progress{height:3px;background:#e5e8ed;margin:20px 0 24px;overflow:hidden}
+.wizard-progress{display:none!important}
 .wizard-progress-fill{display:block;width:33.333%;height:100%;background:#2358dc;transition:width .3s ease}
 .wizard-step[hidden]{display:none}
 .wizard-step{animation:wizardIn .28s ease both}
@@ -895,7 +895,7 @@ body{font-size:16px;line-height:1.7}
 <form class="lead-form" id="leadForm" novalidate>
 <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="landing_page"><input type="hidden" name="referrer"><div class="hp-field" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <div class="wizard-heading"><span class="wizard-kicker">SPRINTWORKS / ENQUIRY</span><h3 id="wizardTitle">First, tell us about you.</h3><p class="form-intro" id="wizardIntro">We'll use this to point you towards the most relevant next step.</p></div>
-<div class="wizard-progress" aria-label="Form progress"><span class="wizard-progress-fill" id="wizardProgress"></span></div>
+
 <div class="wizard-step is-current" data-wizard-step="0">
 <div class="wizard-step-label"><span>01</span> YOUR SITUATION</div>
 <div class="form-grid">
@@ -903,18 +903,18 @@ body{font-size:16px;line-height:1.7}
 <div class="field"><label for="stage">Where are you right now?</label><select id="stage" name="stage"><option value="">Choose if relevant</option><option>Class 9–10</option><option>Class 11–12 / Intermediate</option><option>Choosing an undergraduate course</option><option>Currently in college</option><option>Recent graduate</option><option>0–3 years of work experience</option><option>3+ years of work experience</option><option>Parent / educator / institution</option></select></div>
 <div class="field full"><label for="interest">What would help most right now? *</label><select id="interest" name="interest" required><option value="" disabled selected>Choose a next step</option><option>SprintWorks Webinar 1 — The AI Invasion of Careers (28 Nov)</option><option>Hyderabad parent & student meet (28 Dec)</option><option>First cohort launch updates — 28 Jan 2027</option><option>Talk to an Academic Direction Expert (ADE)</option><option>Institutional / school partnership</option></select></div>
 </div>
-<div class="wizard-actions"><span class="wizard-hint">Step 1 of 3 · No enrolment commitment</span><button class="button dark wizard-next" type="button">Continue <span>→</span></button></div>
+<p class="wizard-hint">Choose the options that best describe your situation. Follow-up questions will adapt as you answer.</p>
 </div>
-<div class="wizard-step" data-wizard-step="1" hidden>
+<div class="wizard-step" data-wizard-step="1">
 <div class="wizard-step-label"><span>02</span> WHAT'S ON YOUR MIND?</div>
 <div class="form-grid">
-<div class="field full"><label for="returningFrom">If you are returning from abroad, where are you returning from? (Optional)</label><input id="returningFrom" name="returningFrom" placeholder="e.g. UK, Germany, UAE"> </div>
+<div class="field full" id="returningFromField" hidden><label for="returningFrom">Which country are you returning from? <span class="field-hint">Optional</span></label><input id="returningFrom" name="returningFrom" placeholder="e.g. UK, Germany, UAE"></div>
 <div class="field full"><label for="challenge">What are you trying to figure out?</label><textarea id="challenge" name="challenge" placeholder="Choosing a course, unsure how to build practical skills, looking for a first job, or worried AI is changing your role…"></textarea><span class="field-hint">A sentence or two is plenty. Please don't include sensitive personal details.</span></div>
 <div class="field full"><label for="contactPreference">How would you prefer we reach you?</label><select id="contactPreference" name="contactPreference"><option>Email or WhatsApp</option><option>Email</option><option>Phone / WhatsApp</option></select></div>
 </div>
-<div class="wizard-actions"><button class="button wizard-back" type="button">← Back</button><span class="wizard-hint">Step 2 of 3</span><button class="button dark wizard-next" type="button">Continue <span>→</span></button></div>
+
 </div>
-<div class="wizard-step" data-wizard-step="2" hidden>
+<div class="wizard-step" data-wizard-step="2">
 <div class="wizard-step-label"><span>03</span> WHERE SHOULD WE REPLY?</div>
 <div class="form-grid">
 <div class="field full"><label for="fullName">Your name *</label><input id="fullName" name="name" autocomplete="name" required placeholder="What should we call you?"></div>
@@ -922,7 +922,7 @@ body{font-size:16px;line-height:1.7}
 <div class="field"><label for="phone">Phone / WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="Your contact number"></div>
 <div class="field full consent-field"><label for="consent"><input id="consent" name="consent" type="checkbox" required style="width:auto;margin-right:8px">I agree that SprintWorks may contact me about this enquiry. *</label></div>
 </div>
-<div class="wizard-actions"><button class="button wizard-back" type="button">← Back</button><span class="wizard-hint">Step 3 of 3 · Review before sending</span><button class="button dark form-submit" type="submit">Send enquiry <span>↗</span></button></div>
+<div class="wizard-actions"><span class="wizard-hint">No enrolment commitment.</span><button class="button dark form-submit" type="submit">Send enquiry <span>↗</span></button></div>
 </div>
 <p class="form-privacy">This is an expression of interest, not a purchase or enrolment. Any programme fees will be shared before you commit. Your details should only be used to respond to this enquiry.</p>
 <p class="form-status" id="formStatus" role="status"></p>
@@ -1031,29 +1031,42 @@ document.querySelectorAll('[data-audience]').forEach(function(link){
  const form=document.getElementById('leadForm'); if(!form)return;
  const steps=[...form.querySelectorAll('[data-wizard-step]')];
  const title=document.getElementById('wizardTitle'), intro=document.getElementById('wizardIntro');
- const progress=document.getElementById('wizardProgress'), status=document.getElementById('formStatus');
- const titles=[['First, tell us about you.','We’ll use this to point you towards the most relevant next step.'],['What’s on your mind?','A little context helps us prepare for a useful conversation.'],['Where should we reply?','Check your details, then send your enquiry.']];
- let current=0, sending=false;
+ const status=document.getElementById('formStatus');
+ let sending=false;
  function setStatus(message,state){status.textContent=message;status.dataset.state=state||'';}
- function showStep(index){current=Math.max(0,Math.min(index,steps.length-1));steps.forEach((step,i)=>{step.hidden=i!==current;step.classList.toggle('is-current',i===current)});title.textContent=titles[current][0];intro.textContent=titles[current][1];if(progress)progress.style.width=((current+1)/steps.length*100)+'%';setStatus('','');const hint=form.querySelector('.wizard-hint');if(hint)hint.textContent='Step '+(current+1)+' of '+steps.length+(current===0?' · No enrolment commitment':current===2?' · Review before sending':'');}
- function validateStep(index){let ok=true;steps[index].querySelectorAll('input,select,textarea').forEach(el=>{if(el.name==='website'||el.type==='hidden'||el.disabled)return;if(!el.checkValidity()){el.setAttribute('aria-invalid','true');if(ok){el.reportValidity();el.focus()}ok=false}else el.removeAttribute('aria-invalid')});return ok;}
- form.querySelectorAll('.wizard-next').forEach(btn=>btn.addEventListener('click',()=>{if(validateStep(current))showStep(current+1)}));
- form.querySelectorAll('.wizard-back').forEach(btn=>btn.addEventListener('click',()=>showStep(current-1)));
+ function showAll(){steps.forEach(step=>{step.hidden=false;step.classList.add('is-current')});title.textContent='Let’s find your next step.';intro.textContent='Tell us a little about yourself. We’ll only show follow-up questions that are relevant to your situation.';}
+ function validateAll(){let ok=true;form.querySelectorAll('input,select,textarea').forEach(el=>{if(el.name==='website'||el.type==='hidden'||el.disabled||el.closest('[hidden]'))return;if(!el.checkValidity()){el.setAttribute('aria-invalid','true');if(ok){el.reportValidity();el.focus()}ok=false}else el.removeAttribute('aria-invalid')});return ok;}
+ // Keep the country question limited to people returning to India.
+ const persona=form.elements.persona, stage=form.elements.stage, interest=form.elements.interest;
+ const returningField=document.getElementById('returningFromField'), returningInput=form.elements.returningFrom;
+ function updateConditionalFields(){const isReturnee=persona.value==='NRI returnee / returning to India';returningField.hidden=!isReturnee;returningInput.disabled=!isReturnee;if(!isReturnee)returningInput.value='';
+ const stageOptions={
+ 'Student (school / intermediate)':['Class 9–10','Class 11–12 / Intermediate','Choosing an undergraduate course'],
+ 'College student / recent graduate':['Choosing an undergraduate course','Currently in college','Recent graduate'],
+ 'Parent / guardian':['Class 9–10','Class 11–12 / Intermediate','Choosing an undergraduate course','Currently in college','Recent graduate'],
+ 'Early-career professional':['Recent graduate','0–3 years of work experience','3+ years of work experience'],
+ 'Considering a career change':['0–3 years of work experience','3+ years of work experience'],
+ 'NRI returnee / returning to India':['Class 9–10','Class 11–12 / Intermediate','Choosing an undergraduate course','Currently in college','Recent graduate','0–3 years of work experience','3+ years of work experience'],
+ 'School / college / institution':['Parent / educator / institution'],
+ 'Other':['Class 9–10','Class 11–12 / Intermediate','Choosing an undergraduate course','Currently in college','Recent graduate','0–3 years of work experience','3+ years of work experience','Parent / educator / institution']};
+ const currentStage=stage.value, allowed=stageOptions[persona.value]||[];stage.innerHTML='<option value="">Choose if relevant</option>'+allowed.map(v=>'<option>'+v+'</option>').join('');if(allowed.includes(currentStage))stage.value=currentStage;else stage.value='';
+ const allInterests=['SprintWorks Webinar 1 — The AI Invasion of Careers (28 Nov)','Hyderabad parent & student meet (28 Dec)','First cohort launch updates — 28 Jan 2027','Talk to an Academic Direction Expert (ADE)','Institutional / school partnership'];const relevant=persona.value==='School / college / institution'?allInterests.filter(v=>v==='Institutional / school partnership'||v.includes('Webinar')):allInterests.filter(v=>v!=='Institutional / school partnership');const old=interest.value;interest.innerHTML='<option value="" disabled selected>Choose a next step</option>'+relevant.map(v=>'<option>'+v+'</option>').join('');if(relevant.includes(old))interest.value=old;else interest.value='';}
+ persona.addEventListener('change',function(){stage.value='';interest.value='';updateConditionalFields();});updateConditionalFields();
  // Preserve campaign attribution from the landing URL.
  const params=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const el=form.querySelector('[name="'+k+'"]');if(el)el.value=params.get(k)||''});
  form.querySelector('[name="landing_page"]').value=location.href;form.querySelector('[name="referrer"]').value=document.referrer||'';
  // Audience and programme links preselect the matching field and bring it into view.
- form.addEventListener('submit',async function(e){e.preventDefault();if(sending)return;if(!validateStep(2)){showStep(2);return}if(!form.reportValidity())return;
-  const phone=form.elements.phone.value.replace(/[\s()-]/g,'');if(!/^\+?[0-9]{8,15}$/.test(phone)){showStep(2);form.elements.phone.setAttribute('aria-invalid','true');form.elements.phone.focus();setStatus('Please enter a valid phone or WhatsApp number, including country code if needed.','error');return}
+ form.addEventListener('submit',async function(e){e.preventDefault();if(sending)return;if(!validateAll())return;if(!form.reportValidity())return;
+  const phone=form.elements.phone.value.replace(/[\s()-]/g,'');if(!/^\+?[0-9]{8,15}$/.test(phone)){form.elements.phone.setAttribute('aria-invalid','true');form.elements.phone.focus();setStatus('Please enter a valid phone or WhatsApp number, including country code if needed.','error');return}
   sending=true;const button=form.querySelector('.form-submit');button.disabled=true;button.innerHTML='Sending…';setStatus('Sending your enquiry securely…','pending');
   const data=Object.fromEntries(new FormData(form).entries());
   try{const response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let result={};try{result=await response.json()}catch(_){ }
    if(!response.ok||!result.ok)throw new Error(result.message||'We couldn’t send your enquiry just now. Please try again in a moment.');
-   form.reset();['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const el=form.querySelector('[name="'+k+'"]').value=params.get(k)||''});form.querySelector('[name="landing_page"]').value=location.href;form.querySelector('[name="referrer"]').value=document.referrer||'';showStep(0);setStatus('Thank you — your enquiry has been received. SprintWorks will follow up using the contact details you provided.','success');
+   form.reset();updateConditionalFields();['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const el=form.querySelector('[name="'+k+'"]').value=params.get(k)||''});form.querySelector('[name="landing_page"]').value=location.href;form.querySelector('[name="referrer"]').value=document.referrer||'';setStatus('Thank you — your enquiry has been received. SprintWorks will follow up using the contact details you provided.','success');
   }catch(err){setStatus(err.message||'We couldn’t send your enquiry. Please try again, or contact hello@sprintworks.in.','error')}
   finally{sending=false;button.disabled=false;button.innerHTML='Send enquiry <span>↗</span>'}
  });
- showStep(0);
+ showAll();
 })();
 </script>
 
