@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f6f2" />
+  <meta name="description" content="SprintWorks is your career compass. Find clarity, explore your options, and make your next move count." />
+  <title>SprintWorks — Your Career Compass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#f7f6f2;--ink:#0a1b3e;--blue:#175cff;--blue2:#dfe8ff;--gold:#c99a42;--muted:#5d6a80;--line:#dce1e9;--white:#fff;--max:1180px;--radius:24px;--shadow:0 24px 70px rgba(10,27,62,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer}.wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}.topline{height:4px;background:linear-gradient(90deg,var(--blue) 0 12%,transparent 12% 100%);position:absolute;top:0;left:0;width:100%;z-index:20}.nav{height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:10}.brand{display:flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-weight:800;font-size:22px;letter-spacing:-1.1px}.brand-mark{width:39px;height:39px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;position:relative;background:#fff}.brand-mark:before{content:'';position:absolute;width:2px;height:25px;background:linear-gradient(var(--gold) 0 50%,var(--blue) 50%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}.brand-mark:after{content:'';width:7px;height:7px;border:2px solid var(--ink);border-radius:50%;background:var(--paper);z-index:1}.brand-word span{color:var(--blue)}.nav-links{display:flex;align-items:center;gap:28px;color:#35445f;font-size:13px;font-weight:700}.nav-links a:not(.btn):hover{color:var(--blue)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;border-radius:999px;padding:14px 21px;font-size:13px;font-weight:700;letter-spacing:.01em;transition:transform .25s,background .25s,border-color .25s,box-shadow .25s;min-height:48px}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--blue);color:white;box-shadow:0 10px 22px rgba(23,92,255,.18)}.btn-primary:hover{background:#0647e8;box-shadow:0 14px 28px rgba(23,92,255,.24)}.btn-outline{border-color:#cbd4e2;background:transparent}.btn-outline:hover{border-color:var(--blue);background:#fff}.btn-small{padding:11px 16px;min-height:40px;font-size:12px}.menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink)}
+    .hero{min-height:690px;padding:52px 0 76px;display:flex;align-items:center;position:relative;overflow:hidden}.hero:before{content:'';position:absolute;right:-10%;top:-18%;width:62%;height:95%;background:radial-gradient(ellipse,rgba(219,229,249,.62),rgba(247,246,242,0) 68%);pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px;position:relative}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--blue);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;margin-bottom:23px}.eyebrow:before{content:'';height:2px;width:26px;background:var(--gold)}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.055em;line-height:1.05}h1{font-size:clamp(48px,6.1vw,82px);font-weight:800;margin-bottom:24px;max-width:690px}h1 .blue{color:var(--blue)}h1 .serif{font-family:Georgia,serif;font-weight:500;font-style:italic;letter-spacing:-.07em}.hero-copy{font-size:clamp(17px,1.6vw,20px);line-height:1.65;color:var(--muted);max-width:540px;margin-bottom:29px}.hero-copy strong{color:var(--ink);font-weight:700}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}.micro-proof{display:flex;gap:12px;align-items:center;color:#5f6d83;font-size:12px}.micro-proof .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(201,154,66,.12)}
+    .compass-stage{min-height:475px;display:grid;place-items:center;position:relative}.orbit{position:absolute;border:1px solid #dbe2ef;border-radius:50%;width:min(100%,440px);aspect-ratio:1;animation:orbit 50s linear infinite}.orbit:before,.orbit:after{content:'';position:absolute;border:1px solid #e1e6ef;border-radius:50%;inset:12%}.orbit:after{inset:24%;border-style:dashed;opacity:.8}.orbit-ticks{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,transparent 0 5.5deg,#bdc9dc 5.5deg 5.8deg,transparent 5.8deg 6deg);mask:radial-gradient(circle,transparent 0 67%,#000 67.5% 68.2%,transparent 68.7%)}.compass{width:min(77%,330px);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.46);border:1px solid #dce3ef;box-shadow:0 25px 80px rgba(18,47,95,.07),inset 0 0 0 12px rgba(255,255,255,.5);display:grid;place-items:center;position:relative;animation:float 6s ease-in-out infinite}.compass svg{width:75%;height:75%;overflow:visible}.compass-label{position:absolute;font-size:10px;letter-spacing:.15em;font-weight:800;color:#52627d}.compass-label.n{top:12%;left:50%;transform:translateX(-50%)}.compass-label.e{right:12%;top:50%;transform:translateY(-50%)}.compass-label.s{bottom:12%;left:50%;transform:translateX(-50%)}.compass-label.w{left:12%;top:50%;transform:translateY(-50%)}.float-note{position:absolute;padding:13px 16px;background:rgba(255,255,255,.88);border:1px solid #e2e7ef;border-radius:14px;box-shadow:var(--shadow);font-size:12px;font-weight:700;backdrop-filter:blur(10px)}.float-note small{display:block;font-size:10px;color:var(--muted);font-weight:500;margin-top:2px}.note-one{left:0;top:17%}.note-two{right:0;bottom:18%}.scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:9px;align-items:center;color:#8290a5;font-size:10px;letter-spacing:.13em;text-transform:uppercase}.scroll-cue span{width:20px;height:1px;background:var(--gold)}
+    .section{padding:110px 0;position:relative}.section-kicker{color:var(--blue);font-size:11px;letter-spacing:.16em;font-weight:800;text-transform:uppercase;margin-bottom:16px}.section-title{font-size:clamp(35px,4.6vw,60px);max-width:800px;margin-bottom:22px}.section-intro{color:var(--muted);font-size:18px;max-width:680px;line-height:1.75}.story{background:#0b1d40;color:white;overflow:hidden}.story .section-kicker{color:#8eafff}.story .section-intro{color:#b9c5d8}.story-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:70px;align-items:start}.story-sticky{position:sticky;top:120px}.story-line{border-left:1px solid #344563;padding-left:28px;display:grid;gap:36px}.story-beat{position:relative;padding-bottom:8px}.story-beat:before{content:'';position:absolute;left:-34px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(201,154,66,.12)}.story-beat .number{font-size:10px;letter-spacing:.15em;color:#8eafff;font-weight:800;margin-bottom:8px}.story-beat h3{font-size:24px;letter-spacing:-.035em;margin-bottom:10px}.story-beat p{color:#b9c5d8;max-width:500px;margin-bottom:0}.story-quote{margin-top:36px;padding:23px 25px;border:1px solid #344563;border-radius:18px;color:#e7edfa;font-family:Georgia,serif;font-size:22px;line-height:1.45}.problem-head{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:38px}.problem-head .section-title{margin-bottom:0}.problem-hint{max-width:260px;color:var(--muted);font-size:13px}.problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.problem-card{border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:18px;padding:23px 19px;text-align:left;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;transition:all .25s;color:var(--ink)}.problem-card:hover,.problem-card.selected{border-color:var(--blue);background:white;transform:translateY(-4px);box-shadow:0 16px 35px rgba(10,27,62,.08)}.problem-card .symbol{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e9efff;color:var(--blue);font-weight:800;margin-bottom:18px}.problem-card .statement{font-family:Manrope,sans-serif;font-weight:700;font-size:16px;line-height:1.4;letter-spacing:-.025em}.problem-card .choose{font-size:11px;color:var(--blue);font-weight:800;margin-top:17px}.selected-response{display:none;margin-top:18px;padding:22px 25px;border-radius:18px;background:#eaf0ff;border:1px solid #cbd8ff;align-items:center;justify-content:space-between;gap:20px}.selected-response.visible{display:flex}.selected-response p{margin:0;color:#41516f;font-size:14px}.selected-response strong{display:block;color:var(--ink);margin-bottom:4px}
+    .solution{background:#edf1f8}.solution-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}.compass-mini{aspect-ratio:1;max-width:430px;width:100%;margin:auto;border-radius:50%;border:1px solid #d1dced;background:radial-gradient(circle,#fff 0 31%,#f6f8fc 31.3% 50%,transparent 50.3%),repeating-conic-gradient(from 0deg,#d2dceb 0 1deg,transparent 1deg 15deg);display:grid;place-items:center;position:relative}.compass-mini:before{content:'';position:absolute;inset:12%;border:1px solid #d2dceb;border-radius:50%}.mini-needle{width:28%;height:58%;position:relative;display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 8px 12px rgba(10,27,62,.12));animation:needle 9s ease-in-out infinite}.mini-needle:before{content:'';width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-bottom:130px solid var(--gold);position:absolute;top:0}.mini-needle:after{content:'';position:absolute;top:50%;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-top:130px solid var(--ink)}.mini-hub{width:22px;height:22px;background:var(--blue);border:5px solid white;border-radius:50%;position:absolute;top:calc(50% - 11px);z-index:2;box-shadow:0 0 0 2px var(--ink)}.solution-steps{display:grid;gap:0;margin:30px 0}.solution-step{display:grid;grid-template-columns:44px 1fr;gap:15px;padding:19px 0;border-bottom:1px solid #d5dce8}.solution-step:last-child{border-bottom:0}.step-no{width:37px;height:37px;display:grid;place-items:center;border:1px solid #c3d0e6;border-radius:50%;color:var(--blue);font-size:12px;font-weight:800;background:rgba(255,255,255,.65)}.solution-step h3{font-size:18px;letter-spacing:-.02em;margin:2px 0 5px}.solution-step p{font-size:14px;color:var(--muted);margin:0}.manifesto{padding:80px 0;background:var(--blue);color:white;text-align:center}.manifesto .section-kicker{color:#c8d7ff}.manifesto h2{font-size:clamp(34px,5vw,64px);max-width:900px;margin:0 auto 20px}.manifesto p{max-width:660px;margin:0 auto 27px;color:#e1e9ff;font-size:17px}.manifesto .btn-primary{background:white;color:var(--blue);box-shadow:none}.manifesto .btn-outline{color:white;border-color:rgba(255,255,255,.45)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}.about-note{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}.about-note .quote-mark{font-family:Georgia,serif;font-size:70px;line-height:.8;color:var(--gold)}.about-note p{font-family:Manrope,sans-serif;font-size:24px;line-height:1.4;letter-spacing:-.035em;font-weight:700;margin:15px 0 0}.expertise{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}.expertise span{padding:13px 14px;background:#edf1f8;border-radius:10px;font-size:12px;font-weight:700}.events{background:#fff}.events-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:38px}.events-head .section-title{margin-bottom:0}.event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.event-card{border:1px solid var(--line);border-radius:22px;padding:25px;display:flex;flex-direction:column;min-height:355px;position:relative;overflow:hidden;background:var(--paper)}.event-card.featured{background:#0b1d40;color:white;border-color:#0b1d40}.event-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:28px}.event-tag{font-size:10px;letter-spacing:.12em;font-weight:800;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:#e5ecff;color:var(--blue)}.featured .event-tag{background:#203b6d;color:#c9d7ff}.event-date{text-align:right;font-size:12px;font-weight:800;color:var(--muted)}.featured .event-date{color:#b9c5d8}.event-card h3{font-size:27px;letter-spacing:-.04em;margin-bottom:12px}.event-card p{color:var(--muted);font-size:14px;line-height:1.7}.featured p{color:#b9c5d8}.event-card .event-bottom{margin-top:auto;padding-top:20px}.event-card .btn{width:100%}.event-footnote{font-size:11px;color:var(--muted);margin-top:20px}
+    .form-section{background:#edf1f8}.form-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:start}.form-intro{position:sticky;top:120px}.form-panel{background:white;border:1px solid #dce3ed;border-radius:24px;padding:32px;box-shadow:var(--shadow)}.form-panel h3{font-size:25px;margin-bottom:8px}.form-panel>p{color:var(--muted);font-size:13px;margin-bottom:24px}.choice-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.choice-chip{border:1px solid #d4dce8;background:#fff;border-radius:999px;padding:10px 13px;font-size:12px;font-weight:600;color:#45536c;cursor:pointer;transition:.2s}.choice-chip input{position:absolute;opacity:0;pointer-events:none}.choice-chip:has(input:checked){background:#eaf0ff;border-color:var(--blue);color:var(--blue)}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px;margin-bottom:16px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #d6deea;border-radius:11px;background:#fff;padding:13px 14px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,92,255,.1)}.field textarea{min-height:100px;resize:vertical}.consent{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:11px;margin:4px 0 20px}.consent input{margin-top:4px;accent-color:var(--blue)}.form-status{display:none;padding:13px 15px;border-radius:11px;font-size:13px;margin-bottom:15px}.form-status.show{display:block}.form-status.error{background:#fff0ed;color:#9a2c19}.form-status.success{background:#e9f8ef;color:#166534}.submit-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.submit-note{font-size:11px;color:var(--muted)}.footer{background:#081832;color:white;padding:55px 0 25px}.footer-main{display:flex;justify-content:space-between;gap:40px;padding-bottom:40px;border-bottom:1px solid #263651}.footer .brand{color:white}.footer .brand-mark{background:#fff}.footer-copy{max-width:330px;color:#aebbd0;font-size:13px;margin-top:15px}.footer-links{display:flex;flex-wrap:wrap;gap:20px;align-content:flex-start;font-size:12px;color:#d5deed}.footer-links a:hover{color:white}.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:20px;color:#8f9db3;font-size:11px}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.in-view{opacity:1;transform:translateY(0)}.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes orbit{to{transform:rotate(360deg)}}@keyframes needle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(5deg)}}
+    @media(max-width:900px){.nav-links{gap:16px}.hero-grid{gap:22px;grid-template-columns:1.05fr .95fr}.compass-stage{min-height:380px}.float-note{font-size:10px;padding:10px 12px}.story-grid,.solution-layout,.about-grid,.form-layout{gap:38px}.problem-grid{grid-template-columns:repeat(2,1fr)}.event-grid{gap:10px}.event-card{padding:20px}.event-card h3{font-size:23px}.form-intro{position:static}}
+    @media(max-width:680px){.wrap{width:min(var(--max),calc(100% - 36px))}.nav{height:74px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:white;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:4px}.nav-links.open{display:flex}.nav-links a{padding:10px}.nav-links .btn{text-align:center;margin-top:8px}.brand{font-size:20px}.hero{padding:48px 0 60px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:12px}.hero-copy{font-size:17px}.hero-actions .btn{flex:1}.compass-stage{min-height:300px;margin-top:0}.orbit{width:280px}.compass{width:220px}.note-one{left:0;top:13%}.note-two{right:0;bottom:10%}.scroll-cue{display:none}.section{padding:76px 0}.section-title{font-size:clamp(34px,10vw,48px)}.section-intro{font-size:16px}.story-grid,.solution-layout,.about-grid,.form-layout{grid-template-columns:1fr;gap:34px}.story-sticky{position:static}.story-line{gap:28px}.problem-head,.events-head{display:block}.problem-hint{margin-top:16px}.problem-grid{gap:9px}.problem-card{min-height:165px;padding:17px 14px}.problem-card .statement{font-size:14px}.selected-response.visible{align-items:flex-start;flex-direction:column}.solution-layout .compass-mini{max-width:280px;grid-row:2}.manifesto{padding:68px 0}.manifesto p{font-size:15px}.about-note{padding:25px}.about-note p{font-size:21px}.event-grid{grid-template-columns:1fr}.event-card{min-height:unset}.event-top{margin-bottom:20px}.event-card .event-bottom{padding-top:10px}.form-panel{padding:23px 18px}.field-grid{grid-template-columns:1fr;gap:0}.field.full{grid-column:auto}.footer-main{flex-direction:column}.footer-links{gap:15px}.footer-bottom{flex-direction:column;gap:8px}.expertise{gap:8px}.expertise span{font-size:11px;padding:11px}.submit-row .btn{width:100%}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header class="wrap nav">
+    <a class="brand" href="#home" aria-label="SprintWorks home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-word">Sprint<span>Works</span></span></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" id="menuToggle">☰</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#story">Our Story</a><a href="#approach">Our Approach</a><a href="#about">About</a><a href="#events">Events</a>
+      <a class="btn btn-primary btn-small" href="#direction">Find Your Direction <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow">Your career compass</div>
+          <h1>YOUR CAREER<br>ISN'T A<br><span class="blue serif">STRAIGHT LINE.</span></h1>
+          <p class="hero-copy"><strong>Feeling stuck? Unsure what's next?</strong><br>You don't have to figure it all out alone. Find clarity, explore your options, and make your next move count.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#direction">Find Your Direction <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#story">Our Story <span aria-hidden="true">↓</span></a></div>
+          <div class="micro-proof"><span class="dot"></span><span>A thoughtful place to start — wherever you are.</span></div>
+        </div>
+        <div class="compass-stage" aria-label="Illustration of a career compass">
+          <div class="orbit"><div class="orbit-ticks"></div></div>
+          <div class="float-note note-one">PAUSE & REFLECT<small>There's no one right path.</small></div>
+          <div class="compass">
+            <span class="compass-label n">N</span><span class="compass-label e">E</span><span class="compass-label s">S</span><span class="compass-label w">W</span>
+            <svg viewBox="0 0 300 300" role="img" aria-label="Compass needle">
+              <circle cx="150" cy="150" r="119" fill="none" stroke="#d9e1ee" stroke-width="1.5"/><circle cx="150" cy="150" r="91" fill="none" stroke="#e0e6ef" stroke-width="1.5"/>
+              <g stroke="#bdc9dc" stroke-width="1.6" stroke-linecap="round"><path d="M150 13v18 M150 269v18 M13 150h18 M269 150h18"/><path d="M53 53l13 13 M234 234l13 13 M53 247l13-13 M234 66l13-13"/></g>
+              <path d="M150 43 L176 150 L150 133 L124 150 Z" fill="#d8e0ed"/><path d="M150 43 L162 150 L150 139 L138 150 Z" fill="#c99a42"/><path d="M150 257 L138 150 L150 161 L162 150 Z" fill="#0a1b3e"/><path d="M150 43 L150 133 L138 150 Z" fill="#f0c66c"/><path d="M150 257 L150 161 L162 150 Z" fill="#175cff" opacity=".35"/><circle cx="150" cy="150" r="12" fill="#fff" stroke="#0a1b3e" stroke-width="5"/><circle cx="150" cy="150" r="4" fill="#175cff"/>
+            </svg>
+          </div>
+          <div class="float-note note-two">YOUR NEXT STEP<small>Clarity before certainty.</small></div>
+        </div>
+      </div>
+      <div class="scroll-cue"><span></span> There's more to your story <span></span></div>
+    </section>
+
+    <section class="section story" id="story">
+      <div class="wrap story-grid">
+        <div class="story-sticky reveal"><div class="section-kicker">01 / The story</div><h2 class="section-title">Somewhere along the way, we stopped asking what we wanted.</h2><p class="section-intro">We followed the next expected step. School. A degree. A job. And sometimes, even after doing everything “right,” something still didn't feel right.</p><div class="story-quote">“Maybe you're not behind. Maybe you just need space to figure out your own direction.”</div></div>
+        <div class="story-line">
+          <article class="story-beat reveal"><div class="number">CHAPTER 01</div><h3>We learned the answers.</h3><p>We were taught to get the marks, choose the stream, clear the exam, and keep moving. There wasn't always much room to ask why.</p></article>
+          <article class="story-beat reveal delay-1"><div class="number">CHAPTER 02</div><h3>We chose the next step.</h3><p>A course, a degree, a first job. Sometimes it was our choice. Sometimes it was the safest, clearest, or most expected option.</p></article>
+          <article class="story-beat reveal delay-2"><div class="number">CHAPTER 03</div><h3>Then the questions arrived.</h3><p>Is this for me? Should I switch? What am I actually good at? What if I start again? Questions like these are more common than we admit.</p></article>
+          <article class="story-beat reveal delay-3"><div class="number">CHAPTER 04</div><h3>But asking for direction can feel hard.</h3><p>Everyone has advice. Not everyone has the time to listen, understand your situation, and help you think through the options.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="wrap">
+        <div class="problem-head reveal"><div><div class="section-kicker">02 / The problem</div><h2 class="section-title">Which of these sounds a little too familiar?</h2></div><p class="problem-hint">No labels. No judgement. Just start with what feels closest.</p></div>
+        <div class="problem-grid" id="problemGrid">
+          <button class="problem-card reveal" data-topic="working"><span class="symbol">↗</span><span class="statement">I dread Mondays more than I should.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal delay-1" data-topic="switch"><span class="symbol">↔</span><span class="statement">I think I'm in the wrong job or field.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal delay-2" data-topic="student"><span class="symbol">◎</span><span class="statement">I've studied, but I don't know what's next.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal delay-3" data-topic="mentor"><span class="symbol">✳</span><span class="statement">I wish someone experienced could guide me.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal" data-topic="parent"><span class="symbol">⌂</span><span class="statement">I'm a parent trying to guide my child.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal delay-1" data-topic="direction"><span class="symbol">✦</span><span class="statement">I want a change, but can't see the path.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal delay-2" data-topic="confidence"><span class="symbol">◌</span><span class="statement">I'm afraid of making the wrong decision.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+          <button class="problem-card reveal delay-3" data-topic="unsure"><span class="symbol">?</span><span class="statement">I don't know. I just need some clarity.</span><span class="choose">THIS SOUNDS LIKE ME +</span></button>
+        </div>
+        <div class="selected-response" id="selectedResponse" aria-live="polite"><div><strong id="responseTitle">You're in the right place to start.</strong><p id="responseText">You don't have to decide everything today. Tell us a little about where you are.</p></div><a class="btn btn-primary btn-small" id="responseCta" href="#direction">Let's start <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section solution" id="approach">
+      <div class="wrap solution-layout">
+        <div class="compass-mini reveal" aria-hidden="true"><div class="mini-needle"><span class="mini-hub"></span></div></div>
+        <div class="reveal"><div class="section-kicker">03 / The solution</div><h2 class="section-title">Not another course. A clearer compass.</h2><p class="section-intro">Career decisions are personal. We believe the next step starts with understanding where you are — not being handed a one-size-fits-all answer.</p>
+          <div class="solution-steps">
+            <div class="solution-step"><span class="step-no">01</span><div><h3>Pause</h3><p>Make space to understand what's working, what isn't, and what matters to you.</p></div></div>
+            <div class="solution-step"><span class="step-no">02</span><div><h3>Explore</h3><p>Look beyond the obvious paths and discover possibilities worth considering.</p></div></div>
+            <div class="solution-step"><span class="step-no">03</span><div><h3>Understand</h3><p>Ask better questions, learn from experienced perspectives, and weigh your options.</p></div></div>
+            <div class="solution-step"><span class="step-no">04</span><div><h3>Move forward</h3><p>Find one practical next step. You don't need your whole life mapped out today.</p></div></div>
+          </div>
+          <a class="btn btn-primary" href="#direction">Start with where I am <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto"><div class="wrap reveal"><div class="section-kicker">A different kind of career conversation</div><h2>You don't need to have it all figured out. You just need a place to start.</h2><p>If you've been questioning your career, your next move, or the path you were expected to take — there's room for that conversation here.</p><a class="btn btn-primary" href="#direction">Find Your Direction <span>↗</span></a> <a class="btn btn-outline" href="#events">Explore upcoming events <span>↓</span></a></div></section>
+
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="reveal"><div class="section-kicker">04 / About SprintWorks</div><h2 class="section-title">We've asked these questions ourselves.</h2><p class="section-intro">SprintWorks is being built by a team based in Telangana, bringing together perspectives from product management, recruiting, entrepreneurship, analytics, and bureaucratic and institutional systems.</p><p class="section-intro">Our collective experience spans roughly a decade, with exposure to education and employment in India and abroad. We've seen the gap between what people are taught, what work asks of them, and the guidance they wish they had.</p><p class="section-intro">We aren't here to tell you who to become. We're here to help you discover where you could go.</p></div>
+        <div class="about-note reveal delay-1"><div class="quote-mark">“</div><p>We know what it feels like to be capable, ambitious — and still unsure what comes next.</p><div class="expertise"><span>Product managers</span><span>Recruiters</span><span>Founders</span><span>Analysts</span><span>Institutional experience</span><span>Global perspectives</span></div></div>
+      </div>
+    </section>
+
+    <section class="section events" id="events">
+      <div class="wrap"><div class="events-head reveal"><div><div class="section-kicker">05 / Take the first step</div><h2 class="section-title">A conversation can change your perspective.</h2></div><p class="problem-hint">Join us as SprintWorks takes shape. Start with a free online session, meet us in person, or hear about our first cohort.</p></div>
+        <div class="event-grid">
+          <article class="event-card featured reveal"><div class="event-top"><span class="event-tag">Start here · Free</span><span class="event-date">28 NOV 2026</span></div><h3>You don't have to figure it all out alone.</h3><p>A free online webinar for people questioning their career direction, exploring options, or looking for a clearer perspective.</p><div class="event-bottom"><a class="btn btn-primary" href="#direction" data-event="webinar">Reserve my free spot <span>↗</span></a></div></article>
+          <article class="event-card reveal delay-1"><div class="event-top"><span class="event-tag">Let's talk · In person</span><span class="event-date">28 DEC 2026</span></div><h3>A conversation about the future — together.</h3><p>An in-person parent–student meet to explore career choices, expectations, and the questions that deserve more time.</p><div class="event-bottom"><a class="btn btn-outline" href="#direction" data-event="parent-meet">Register your interest <span>↗</span></a></div></article>
+          <article class="event-card reveal delay-2"><div class="event-top"><span class="event-tag">Coming soon</span><span class="event-date">30 JAN 2027</span></div><h3>Your next chapter starts here.</h3><p>Our first cohort is in the works. The domain and format will be revealed soon. Stay connected to hear what's next.</p><div class="event-bottom"><a class="btn btn-outline" href="#direction" data-event="cohort">Notify me about the cohort <span>↗</span></a></div></article>
+        </div>
+        <p class="event-footnote">Event details, venue, and format will be shared with registered participants when confirmed. Dates and availability should be verified before launch.</p>
+      </div>
+    </section>
+
+    <section class="section form-section" id="direction">
+      <div class="wrap form-layout">
+        <div class="form-intro reveal"><div class="section-kicker">06 / Your next step</div><h2 class="section-title">Let's start with where you are.</h2><p class="section-intro">You don't need the perfect words. Choose what feels closest, tell us a little about yourself, and we'll take it from there.</p><p style="font-size:13px;color:var(--muted)">No pressure to have a plan. No need to figure everything out in one form.</p></div>
+        <div class="form-panel reveal delay-1">
+          <h3>Tell us a little about you.</h3><p>Pick what brings you here. We'll use it to understand your interest.</p>
+          <div class="choice-row" role="group" aria-label="What brings you here?">
+            <label class="choice-chip"><input type="radio" name="interest" value="career-clarity" checked>Career clarity</label>
+            <label class="choice-chip"><input type="radio" name="interest" value="free-webinar">Free webinar</label>
+            <label class="choice-chip"><input type="radio" name="interest" value="parent-student-meet">Parent–student meet</label>
+            <label class="choice-chip"><input type="radio" name="interest" value="cohort-updates">Cohort updates</label>
+          </div>
+          <!-- Netlify Forms: works after deploying this static site to Netlify. For another host, connect the form to your own endpoint. -->
+          <form name="sprintworks-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="enquiryForm">
+            <input type="hidden" name="form-name" value="sprintworks-enquiry"><p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+            <input type="hidden" name="interest" id="interestHidden" value="career-clarity">
+            <input type="hidden" name="selected-situation" id="situationHidden" value="">
+            <div class="field-grid">
+              <div class="field"><label for="fullName">Your name *</label><input id="fullName" name="name" autocomplete="name" placeholder="What should we call you?" required></div>
+              <div class="field"><label for="email">Email address *</label><input id="email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required></div>
+              <div class="field"><label for="phone">Mobile number (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your preferred number"></div>
+              <div class="field"><label for="stage">Where are you right now? *</label><select id="stage" name="career-stage" required><option value="" disabled selected>Select what fits</option><option>School / college student</option><option>Recent graduate</option><option>Working professional</option><option>Exploring a career switch</option><option>Parent / guardian</option><option>Other / figuring it out</option></select></div>
+              <div class="field full"><label for="message">What's on your mind? (optional)</label><textarea id="message" name="message" placeholder="A few words are enough. What's been on your mind lately?"></textarea></div>
+            </div>
+            <label class="consent"><input type="checkbox" name="contact-consent" value="yes" required><span>I agree that SprintWorks may contact me about this enquiry or the event I selected. My details will be handled according to the site's privacy policy.</span></label>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            <div class="submit-row"><button class="btn btn-primary" type="submit" id="submitButton">Help me find my next step <span aria-hidden="true">↗</span></button><span class="submit-note">A small first step. No pressure.</span></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><div class="footer-main"><div><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-word">Sprint<span>Works</span></span></a><p class="footer-copy">A career compass for the moments when you know something needs to change, but you're not sure what comes next.</p></div><div class="footer-links"><a href="#story">Our Story</a><a href="#approach">Our Approach</a><a href="#about">About Us</a><a href="#events">Events</a><a href="#direction">Contact</a></div></div><div class="footer-bottom"><span>© <span id="year">2026</span> SprintWorks. Your career compass.</span><span>Made for the next step — wherever it leads.</span></div></div></footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); menuToggle.textContent = open ? '×' : '☰'; });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.textContent='☰'; }));
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in-view'); observer.unobserve(entry.target); } }), {threshold:.12, rootMargin:'0px 0px -30px 0px'});
+      revealEls.forEach(el => observer.observe(el));
+    } else revealEls.forEach(el => el.classList.add('in-view'));
+
+    const responses = {
+      working:['That Monday feeling deserves a closer look.','You don’t have to make a big decision today. Start by telling us where you are.','working'],
+      switch:['A change can begin with a question, not a resignation letter.','Let’s start by understanding what you want to move towards.','switch'],
+      student:['Not knowing yet is a valid place to start.','You can explore your options without having your whole future decided.','student'],
+      mentor:['It helps to have space to think out loud.','Tell us what kind of guidance you’re looking for and we’ll take it from there.','mentor'],
+      parent:['Supporting someone’s future starts with listening together.','Register your interest in the parent–student meet.','parent'],
+      direction:['You don’t need the whole map — just a useful next step.','Share a little about what you’re considering.','direction'],
+      confidence:['It’s okay to take a considered next step instead of a rushed leap.','We’ll start with where you are, not where you think you should be.','confidence'],
+      unsure:['You don’t need to explain it perfectly.','Choose the closest option in the form, or simply tell us what’s on your mind.','unsure']
+    };
+    const cards = [...document.querySelectorAll('.problem-card')];
+    const responseBox = document.getElementById('selectedResponse');
+    cards.forEach(card => card.addEventListener('click', () => {
+      cards.forEach(c => { c.classList.remove('selected'); c.querySelector('.choose').textContent='THIS SOUNDS LIKE ME +'; });
+      card.classList.add('selected'); card.querySelector('.choose').textContent='SELECTED ✓';
+      const r = responses[card.dataset.topic]; document.getElementById('responseTitle').textContent=r[0]; document.getElementById('responseText').textContent=r[1]; document.getElementById('situationHidden').value=card.querySelector('.statement').textContent;
+      responseBox.classList.add('visible');
+      const interestMap={parent:'parent-student-meet',student:'free-webinar',working:'career-clarity',switch:'career-clarity',mentor:'free-webinar',direction:'career-clarity',confidence:'career-clarity',unsure:'career-clarity'};
+      const value=interestMap[card.dataset.topic]; const radio=document.querySelector(`input[name="interest"][value="${value}"]`); if(radio) radio.checked=true; document.getElementById('interestHidden').value=value;
+    }));
+    document.querySelectorAll('[data-event]').forEach(link => link.addEventListener('click', () => {
+      const val=link.dataset.event==='webinar'?'free-webinar':link.dataset.event==='parent-meet'?'parent-student-meet':'cohort-updates'; const radio=document.querySelector(`input[name="interest"][value="${val}"]`); if(radio)radio.checked=true; document.getElementById('interestHidden').value=val;
+    }));
+    document.querySelectorAll('input[name="interest"]').forEach(radio=>radio.addEventListener('change',()=>document.getElementById('interestHidden').value=radio.value));
+
+    const form=document.getElementById('enquiryForm'); const status=document.getElementById('formStatus'); const submit=document.getElementById('submitButton');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); status.className='form-status'; status.textContent='';
+      if(!form.reportValidity()) return;
+      document.getElementById('interestHidden').value=document.querySelector('input[name="interest"]:checked')?.value || 'career-clarity';
+      const isNetlify=location.hostname.endsWith('netlify.app') || location.hostname.endsWith('netlify.com') || document.querySelector('form[data-netlify="true"]');
+      if(!location.protocol.startsWith('http')) { status.textContent='To receive registrations, deploy this site to Netlify or connect the form to your hosting provider.'; status.className='form-status show error'; return; }
+      submit.disabled=true; submit.innerHTML='Sending…';
+      try {
+        const data=new URLSearchParams(new FormData(form));
+        const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()});
+        if(!res.ok) throw new Error('Submission failed');
+        status.textContent='Thanks for reaching out. Your form was submitted. SprintWorks will be in touch using the contact details you provided.'; status.className='form-status show success'; form.reset(); document.getElementById('interestHidden').value='career-clarity';
+      } catch(err) {
+        status.textContent='We couldn’t submit this just now. Please try again, or check that Netlify Forms is enabled for this deployment.'; status.className='form-status show error';
+      } finally { submit.disabled=false; submit.innerHTML='Help me find my next step <span aria-hidden="true">↗</span>'; }
+    });
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
