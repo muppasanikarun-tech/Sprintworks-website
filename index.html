@@ -748,6 +748,10 @@ body{font-size:16px;line-height:1.7}
 @media(prefers-reduced-motion:reduce){.completion-track span,.form-success-screen{transition:none;animation:none}}
 @media(max-width:560px){.form-topline{margin-bottom:20px}.form-section{padding:19px 0 21px}.form-submit-row{align-items:stretch;flex-direction:column}.form-submit-row .form-submit{width:100%;justify-content:space-between}.form-grid{grid-template-columns:1fr}.form-grid .field.full{grid-column:1/-1}}
 
+
+/* Critical: component display rules must never override the HTML hidden attribute. */
+[hidden], .lead-form [hidden], .lead-form .field[hidden], .lead-form .form-grid[hidden] { display: none !important; }
+#completionFill { width: 0; transition: width .28s ease; }
 </style>
 </head>
 <body>
@@ -1080,7 +1084,7 @@ document.querySelectorAll('[data-audience]').forEach(function(link){
   progressFill.style.width=percent+'%';progressPercent.textContent=percent+'%';progressTrack.setAttribute('aria-valuenow',String(percent));
   progressLabel.textContent=percent===100?'You’re all set':percent>=65?'Almost there':percent>=30?'Good start':'Your progress';
  }
- form.addEventListener('input',updateCompletion);form.addEventListener('change',updateCompletion);
+ form.addEventListener('input',updateCompletion);form.addEventListener('change',function(){updateConditionalFields();updateCompletion();});
  function showSuccess(name){
   const safeName=(name||'there').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]});
   form.innerHTML='<div class="form-success-screen" role="status" aria-live="polite"><div class="form-success-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"></path></svg></div><div class="form-success-kicker">Enquiry successfully submitted</div><h3>Thank you, '+safeName+'.<br><em>Your next step starts here.</em></h3><p>Your message is safely with SprintWorks. Our team will review your situation and reach out using the contact details you shared.</p><div class="success-next-step"><strong>What happens next?</strong><span>An Academic Direction Expert will review your enquiry and help identify a useful next conversation. We’ll be in touch as soon as we can. No pressure, no commitment.</span></div><a class="success-return" href="#main">Back to SprintWorks ↑</a></div>';
@@ -1088,7 +1092,7 @@ document.querySelectorAll('[data-audience]').forEach(function(link){
  form.addEventListener('submit',async function(e){e.preventDefault();if(sending)return;let firstInvalid=null;form.querySelectorAll('input,select,textarea').forEach(el=>{if(el.name==='website'||el.type==='hidden'||el.disabled||el.closest('[hidden]'))return;if(!el.checkValidity()){el.setAttribute('aria-invalid','true');if(!firstInvalid)firstInvalid=el}else el.removeAttribute('aria-invalid')});if(firstInvalid){firstInvalid.focus();firstInvalid.reportValidity();return;}
   const phone=form.elements.phone.value.replace(/[\s()-]/g,'');if(!/^\+?[0-9]{8,15}$/.test(phone)){form.elements.phone.setAttribute('aria-invalid','true');form.elements.phone.focus();setStatus('Please enter a valid phone or WhatsApp number, including country code if needed.','error');return;}
   sending=true;const button=form.querySelector('.form-submit');button.disabled=true;button.innerHTML='Sending…';setStatus('Sending your enquiry securely…','pending');const data=Object.fromEntries(new FormData(form).entries());
-  try{const response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let result={};try{result=await response.json()}catch(_){}if(!response.ok||!result.ok)throw new Error(result.message||'We couldn’t send your enquiry just now. Please try again.');const submittedName=form.elements.name.value;showSuccess(submittedName);}
+  try{const response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let result={};try{result=await response.json()}catch(_){}if(!response.ok||!(result.ok===true||result.success===true))throw new Error(result.message||result.error||('Submission failed (HTTP '+response.status+'). Please try again or email hello@sprintworks.in.'));const submittedName=form.elements.namedItem('name').value;showSuccess(submittedName);}
   catch(err){setStatus(err.message||'We couldn’t send your enquiry. Please try again, or email hello@sprintworks.in.','error');sending=false;button.disabled=false;button.innerHTML='Send my enquiry <span>↗</span>';}
  });
 })();
