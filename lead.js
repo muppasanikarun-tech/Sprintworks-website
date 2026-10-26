@@ -1,4 +1,3 @@
-
 const nodemailer = require('nodemailer');
 
 const escapeHtml = (value) =>
@@ -107,7 +106,7 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // 2. Create the CRM lead, preserving the existing field mappings.
+    // 2. Create the CRM lead, preserving existing field mappings.
     const desc = [
       'Website enquiry via SprintWorks',
       `Audience: ${persona}`,
@@ -168,9 +167,14 @@ module.exports = async function handler(req, res) {
 
     console.log('Zoho lead created successfully.');
 
+    // Track the confirmation email result separately from CRM success.
+    let emailStatus = 'not_attempted';
+
     // 3. Send confirmation only after Zoho has saved the lead.
     // Email errors must never invalidate the saved CRM lead.
     if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+      emailStatus = 'missing_smtp_settings';
+
       console.error(
         'Confirmation email skipped: required SMTP settings are missing.',
         JSON.stringify({
@@ -198,7 +202,7 @@ module.exports = async function handler(req, res) {
           socketTimeout: 15000
         });
 
-        // Check SMTP authentication and connectivity.
+        // Verify SMTP connectivity and authentication.
         await transporter.verify();
         console.log('Hostinger SMTP verification succeeded.');
 
@@ -281,16 +285,24 @@ module.exports = async function handler(req, res) {
           html
         });
 
-        console.log('SprintWorks confirmation email accepted by SMTP.', {
-          messageId: result.messageId,
-          acceptedCount: (result.accepted || []).length,
-          rejectedCount: (result.rejected || []).length
-        });
+        if (result.accepted && result.accepted.length > 0) {
+          emailStatus = 'accepted_by_smtp';
 
-        if (!result.accepted || result.accepted.length === 0) {
-          console.error('SMTP did not accept the recipient address.');
+          console.log('SprintWorks confirmation email accepted by SMTP.', {
+            messageId: result.messageId,
+            acceptedCount: result.accepted.length,
+            rejectedCount: (result.rejected || []).length
+          });
+        } else {
+          emailStatus = 'recipient_rejected';
+
+          console.error('SMTP did not accept the recipient address.', {
+            rejectedCount: (result.rejected || []).length
+          });
         }
       } catch (emailError) {
+        emailStatus = 'smtp_error';
+
         // Do not log credentials, message contents, or recipient details.
         console.error('Confirmation email failed.', {
           code: emailError && emailError.code,
@@ -305,11 +317,11 @@ module.exports = async function handler(req, res) {
       }
     }
 
-// The Zoho lead is saved even if email delivery failed. Email diagnostics enabled.
-return res.status(200).json({
-  ok: true,
-  emailStatus: emailStatus
-});
+    // Zoho lead is saved even if confirmation email delivery fails.
+    return res.status(200).json({
+      ok: true,
+      emailStatus
+    });
   } catch (error) {
     console.error('Lead handler error:', error && error.message);
 
