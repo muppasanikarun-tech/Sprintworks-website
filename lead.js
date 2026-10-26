@@ -306,7 +306,10 @@ module.exports = async function handler(req, res) {
     }
 
     // The Zoho lead is saved even if email delivery failed.
-    return res.status(200).json({ ok: true });
+return res.status(200).json({
+  ok: true,
+  emailStatus: emailStatus
+});
   } catch (error) {
     console.error('Lead handler error:', error && error.message);
 
