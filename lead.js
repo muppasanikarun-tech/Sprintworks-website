@@ -305,7 +305,7 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    // The Zoho lead is saved even if email delivery failed.
+// The Zoho lead is saved even if email delivery failed. Email diagnostics enabled.
 return res.status(200).json({
   ok: true,
   emailStatus: emailStatus
